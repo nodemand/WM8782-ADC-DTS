@@ -1,0 +1,43 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2710";
+
+    fragment@0 {
+        target = <&i2s_clk_consumer>;
+        __overlay__ {
+            status = "okay";
+        };
+    };
+
+    fragment@1 {
+        target-path = "/";
+        __overlay__ {
+            /* Gebruik de driver die wél in je kernel zit */
+            wm8782_codec: wm8782-codec {
+                #sound-dai-cells = <0>;
+                compatible = "linux,spdif-dir"; 
+                status = "okay";
+            };
+
+            sound {
+                compatible = "simple-audio-card";
+                simple-audio-card,name = "WM8782-ADC";
+                simple-audio-card,format = "i2s";
+                
+                /* De WM8782 module levert de klokken (Master) */
+                simple-audio-card,bitclock-master = <&codec_dai>;
+                simple-audio-card,frame-master = <&codec_dai>;
+
+                cpudai: simple-audio-card,cpu {
+                    sound-dai = <&i2s_clk_consumer>;
+                };
+
+                codec_dai: simple-audio-card,codec {
+                    sound-dai = <&wm8782_codec>;
+                };
+            };
+        };
+    };
+};
