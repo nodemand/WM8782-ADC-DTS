@@ -14,7 +14,7 @@
     fragment@1 {
         target-path = "/";
         __overlay__ {
-            /* Gebruik de driver die wél in je kernel zit */
+            /* Use a driver that is in the kernel */
             wm8782_codec: wm8782-codec {
                 #sound-dai-cells = <0>;
                 compatible = "linux,spdif-dir"; 
@@ -26,7 +26,7 @@
                 simple-audio-card,name = "WM8782-ADC";
                 simple-audio-card,format = "i2s";
                 
-                /* De WM8782 module levert de klokken (Master) */
+                /* De WM8782 module supplies the clocks (Master) */
                 simple-audio-card,bitclock-master = <&codec_dai>;
                 simple-audio-card,frame-master = <&codec_dai>;
 
