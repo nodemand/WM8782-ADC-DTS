@@ -31,7 +31,7 @@ now add:<br>
 <b>dtparam=i2s=on<br>
 dtoverlay=wm8782</b>
 
-reboot:<br>
+save the file and reboot:<br>
 <b> sudo reboot now</b>
 
 does it appear?:<br>
