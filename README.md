@@ -2,14 +2,18 @@ The DTS file is for this ADC:<br>
 https://www.audiophonics.fr/en/devices-hifi-audio-adc/adc-analog-to-digital-converter-wm8782-i2s-24bit-192khz-p-13351.html
 
 hook up the ADC like this:<br>
-
-<b>BCK to RPi GPIO 18<br>
-DATA to RPi GPIO 20<br>
-LRCK to RPi GPIO 19<br></b>
-
-1. Use the jumper to connect MCLK to the 24.576 MHz oscillator.<br>
-2. Select Master Mode and 24 bit operation.<br>
-3. Remove the kHz jumper entirely.
+<b>
+<ul>
+<li>BCK to RPi GPIO 18</li>
+<li>DATA to RPi GPIO 20</li>
+<li>LRCK to RPi GPIO 19</li>
+</ul>
+</b>
+<ol>
+<li>Use the jumper to connect MCLK to the 24.576 MHz oscillator.</li>
+<li>Remove the kHz jumper entirely.</li>
+<li>Select Master Mode and 24 bit operation.</li>
+</ol>
 
 compile wm8782.dts with:<br>
 <b> dtc -@ -I dts -O dtb -o wm8782.dtbo wm8782.dts</b>
