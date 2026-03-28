@@ -21,12 +21,6 @@ compile wm8782.dts with:<br>
 copy it to the overlay folder for Trixie:<br>
 <b> sudo cp wm8782.dtbo /boot/firmware/overlays/</b>
 
-add "snd-soc-spdif-rx" as the last line to /etc/modules:<br>
-<b> sudo nano /etc/modules</b>
-
-load the module (needed only once):<br>
-<b> sudo modprobe snd-soc-spdif-rx</b>
-
 edit /boot/firmware/config.txt:<br>
 <b>sudo nano /boot/firmware/config.txt</b>
 
