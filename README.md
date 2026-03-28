@@ -7,7 +7,9 @@ hook up the ADC like this:<br>
 DATA to RPi GPIO 20<br>
 LRCK to RPi GPIO 19<br></b>
 
-connect MCLK to the 24.576 MHz oscillator and select Master Mode and 24 bit operation. Remove the kHz jumper entirely.
+1. Use the jumper to connect MCLK to the 24.576 MHz oscillator.<br>
+2. Select Master Mode and 24 bit operation.<br>
+3. Remove the kHz jumper entirely.
 
 compile wm8782.dts with:<br>
 <b> dtc -@ -I dts -O dtb -o wm8782.dtbo wm8782.dts</b>
