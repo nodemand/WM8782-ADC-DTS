@@ -7,7 +7,7 @@ hook up the ADC like this:<br>
 DATA to RPi GPIO 20<br>
 LRCK to RPi GPIO 19<br></b>
 
-connect MCLK to the 24.576 MHz oscillator and select Master Mode and 24 bit operation.
+connect MCLK to the 24.576 MHz oscillator and select Master Mode and 24 bit operation. Remove the kHz jumper entirely.
 
 compile wm8782.dts with:<br>
 <b> dtc -@ -I dts -O dtb -o wm8782.dtbo wm8782.dts</b>
@@ -21,7 +21,10 @@ add "snd-soc-spdif-rx" as the last line to /etc/modules:<br>
 load the module (needed only once):<br>
 <b> sudo modprobe snd-soc-spdif-rx</b>
 
-edit /boot/firmware/config.txt and remove all other sound overlays and add:<br>
+edit /boot/firmware/config.txt:<br>
+<b>sudo nano /boot/firmware/config.txt</b>
+
+and remove all other sound overlays and add:<br>
 <b>dtparam=i2s=on<br>
 dtoverlay=wm8782</b>
 
@@ -37,4 +40,4 @@ it should say something like:<br>
   Subdevice #0: subdevice #0<br></b>
 
 if yes then run to test:<br>
-<b> arecord -D hw:WM8782ADC -f S32_LE -r 96000 -c 2 -d 30 test.wav</b>
+<b> arecord -D hw:WM8782ADC -f S32_LE -r 48000 -c 2 -d 30 test.wav</b>
