@@ -1,32 +1,32 @@
-hook up the ADC like this:
+hook up the ADC like this:<br>
 
-BCK to RPi GPIO 18
-DATA to RPi GPIO 20
-LRCK to RPi GPIO 19
+<b>BCK to RPi GPIO 18<br>
+DATA to RPi GPIO 20<br>
+LRCK to RPi GPIO 19<br></b>
 
 connect MCLK to the 24.576 MHz oscillator and select Master Mode and 24 bit operation.
 
-compile the wm88782.dts with:
-<b>dtc -@ -I dts -O dtb -o wm8782.dtbo wm8782.dts</b>
+compile the wm88782.dts with:<br>
+<b> dtc -@ -I dts -O dtb -o wm8782.dtbo wm8782.dts</b>
 
-copy it to the overlay folder for Trixie:
-<b>sudo cp wm8782.dtbo /boot/firmware/overlays/</b>
+copy it to the overlay folder for Trixie:<br>
+<b> sudo cp wm8782.dtbo /boot/firmware/overlays/</b>
 
-add "snd-soc-spdif-rx" as the last line to /etc/modules:
-<b>sudo nano /etc/modules</b>
+add "snd-soc-spdif-rx" as the last line to /etc/modules:<br>
+<b> sudo nano /etc/modules</b>
 
-load the module (needed only once):
-<b>sudo modprobe snd-soc-spdif-rx</b>
+load the module (needed only once):<br>
+<b> sudo modprobe snd-soc-spdif-rx</b>
 
-edit /boot/firmware/config.txt and remove all other sound overlays and add:
-<b>dtparam=i2s=on
+edit /boot/firmware/config.txt and remove all other sound overlays and add:<br>
+<b>dtparam=i2s=on<br>
 dtoverlay=wm8782</b>
 
-reboot:
-<b>sudo reboot now</b>
+reboot:<br>
+<b> sudo reboot now</b>
 
-does it appear?:
-<b>arecord -l</b>
+does it appear?:<br>
+<b> arecord -l</b>
 
-if yes then run to test:
-<b>arecord -D hw:WM8782ADC -f S32_LE -r 96000 -c 2 -d 30 test.wav</b>
+if yes then run to test:<br>
+<b> arecord -D hw:WM8782ADC -f S32_LE -r 96000 -c 2 -d 30 test.wav</b>
