@@ -24,7 +24,10 @@ copy it to the overlay folder for Trixie:<br>
 edit /boot/firmware/config.txt:<br>
 <b>sudo nano /boot/firmware/config.txt</b>
 
-and remove or disable all other sound overlays and add:<br>
+remove or disable all other sound overlays and comment out dtparam=audio=on:<br>
+<b>#dtparam=audio=on</b>
+
+now add:<br>
 <b>dtparam=i2s=on<br>
 dtoverlay=wm8782</b>
 
