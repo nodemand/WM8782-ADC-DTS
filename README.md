@@ -9,7 +9,7 @@ LRCK to RPi GPIO 19<br></b>
 
 connect MCLK to the 24.576 MHz oscillator and select Master Mode and 24 bit operation.
 
-compile the wm8782.dts with:<br>
+compile wm8782.dts with:<br>
 <b> dtc -@ -I dts -O dtb -o wm8782.dtbo wm8782.dts</b>
 
 copy it to the overlay folder for Trixie:<br>
