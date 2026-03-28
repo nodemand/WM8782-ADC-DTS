@@ -31,5 +31,10 @@ reboot:<br>
 does it appear?:<br>
 <b> arecord -l</b>
 
+it should say something like:<br>
+<b>card 0: WM8782ADC [WM8782-ADC], device 0: bcm2835-i2s-dir-hifi dir-hifi-0 [bcm2835-i2s-dir-hifi dir-hifi-0]<br>
+  Subdevices: 1/1<br>
+  Subdevice #0: subdevice #0<br></b>
+
 if yes then run to test:<br>
 <b> arecord -D hw:WM8782ADC -f S32_LE -r 96000 -c 2 -d 30 test.wav</b>
