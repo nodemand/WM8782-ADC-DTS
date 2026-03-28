@@ -1,3 +1,6 @@
+The DTS file is for this ADC:
+https://www.audiophonics.fr/en/devices-hifi-audio-adc/adc-analog-to-digital-converter-wm8782-i2s-24bit-192khz-p-13351.html
+
 hook up the ADC like this:<br>
 
 <b>BCK to RPi GPIO 18<br>
