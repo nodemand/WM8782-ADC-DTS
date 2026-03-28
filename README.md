@@ -30,7 +30,7 @@ load the module (needed only once):<br>
 edit /boot/firmware/config.txt:<br>
 <b>sudo nano /boot/firmware/config.txt</b>
 
-and remove all other sound overlays and add:<br>
+and remove or disable all other sound overlays and add:<br>
 <b>dtparam=i2s=on<br>
 dtoverlay=wm8782</b>
 
