@@ -1,3 +1,5 @@
+<h1>WM8782 ADC running on Raspberry Pi</h1>
+
 The DTS file is for this ADC:<br>
 https://www.audiophonics.fr/en/devices-hifi-audio-adc/adc-analog-to-digital-converter-wm8782-i2s-24bit-192khz-p-13351.html
 
